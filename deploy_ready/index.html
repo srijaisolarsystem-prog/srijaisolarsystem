@@ -1,0 +1,525 @@
+<!DOCTYPE html><html lang="en"><head><style id="anti-flicker">
+  html.translating { opacity: 0 !important; }
+</style>
+<script id="anti-flicker-script">
+  (function() {
+      const isTamil = document.cookie.includes('googtrans=/en/ta') || document.cookie.includes('googtrans=/auto/ta') || document.cookie.includes('googtrans=%2Fen%2Fta');
+      if (isTamil) {
+          document.documentElement.classList.add('translating');
+          
+          document.addEventListener('DOMContentLoaded', () => {
+              let timeout;
+              const observer = new MutationObserver(() => {
+                  clearTimeout(timeout);
+                  timeout = setTimeout(() => {
+                      document.documentElement.classList.remove('translating');
+                      document.documentElement.style.transition = 'opacity 0.4s ease';
+                      observer.disconnect();
+                  }, 250);
+              });
+              
+              observer.observe(document.body, { childList: true, characterData: true, subtree: true });
+              
+              // Fallbacks
+              setTimeout(() => {
+                  document.documentElement.classList.remove('translating');
+                  document.documentElement.style.transition = 'opacity 0.4s ease';
+                  observer.disconnect();
+              }, 4000);
+          });
+      }
+  })();
+</script>
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sri Jai Solar - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FBBF24", // Sun Yellow
+                        "primary-fixed-dim": "#F59E0B",
+                        secondary: "#10B981", // Eco Green
+                        "secondary-fixed-dim": "#059669",
+                        "text-primary": "#0F172A",
+                        "text-muted": "#64748B",
+                        "surface-card": "#FFFFFF",
+                        "border-subtle": "#E2E8F0",
+                        error: "#EF4444",
+                        "error-container": "#FEE2E2",
+                        "on-error-container": "#991B1B"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    fontFamily: {
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Merriweather"],
+                        "body-lg": ["Inter"],
+                        "serif-accent": ["Merriweather"],
+                        "display-lg-mobile": ["Merriweather"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "60px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "serif-accent": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer=""></script>
+<style>
+  /* Hide Google Translate UI */
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+  #google_translate_element { display: none !important; }
+  .skiptranslate { display: none !important; }
+</style>
+
+<style id="dynamic-solar-mesh">
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob {
+  animation: blob 12s infinite ease-in-out;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+.mesh-bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #f8fafc; /* slate-50 */
+}
+.mesh-orb-1 {
+  position: absolute;
+  top: -10%; left: 10%;
+  width: 32rem; height: 32rem;
+  background-color: #fdba74; /* orange-300 */
+  border-radius: 9999px;
+  mix-blend-mode: multiply;
+  filter: blur(128px);
+  opacity: 0.6;
+}
+.mesh-orb-2 {
+  position: absolute;
+  top: 10%; right: 10%;
+  width: 32rem; height: 32rem;
+  background-color: #fde047; /* yellow-300 */
+  border-radius: 9999px;
+  mix-blend-mode: multiply;
+  filter: blur(128px);
+  opacity: 0.5;
+}
+.mesh-orb-3 {
+  position: absolute;
+  bottom: -20%; left: 30%;
+  width: 40rem; height: 40rem;
+  background-color: #fcd34d; /* amber-300 */
+  border-radius: 9999px;
+  mix-blend-mode: multiply;
+  filter: blur(128px);
+  opacity: 0.4;
+}
+</style>
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+<script src="./assests/tracker.js" defer></script></head>
+<body class="text-slate-900 font-body-md min-h-screen flex flex-col transition-colors duration-300"><div id="google_translate_element" style="display: none;"></div><div id="mesh-bg" class="mesh-bg-container">
+  <div class="mesh-orb-1 animate-blob"></div>
+  <div class="mesh-orb-2 animate-blob animation-delay-2000"></div>
+  <div class="mesh-orb-3 animate-blob animation-delay-4000"></div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-sm transition-all duration-300">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-16">
+<a href="/index.html" class="font-headline-md text-lg md:text-2xl font-bold text-orange-500 hover:text-orange-600 transition-colors z-50 relative flex items-center gap-1 sm:gap-2 whitespace-nowrap">
+      <img src="./assests/logo.jpg" alt="Sri Jai Solar Systems Logo" class="w-8 h-8 md:w-10 md:h-10 object-cover mix-blend-multiply flex-shrink-0" style="mix-blend-mode: multiply;">
+      <span>Sri Jai Solar Systems</span>
+  </a>
+
+<!-- Desktop Navigation Links & Globe Toggle -->
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md font-semibold">
+    <a href="/index.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">Home</a>
+    <a href="/about.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">About</a>
+    <a href="/solar-solutions.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">Solar</a>
+    <a href="/ac-ups-services.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">AC/UPS</a>
+    <a href="/subsidy.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">Subsidy</a>
+    <a href="/contact.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">Contact</a>
+    <button aria-label="Toggle language" class="text-orange-500 hover:text-orange-600 transition-colors flex items-center justify-center">
+        <span class="material-symbols-outlined notranslate" translate="no">language</span>
+    </button>
+</nav>
+
+<!-- Mobile Navigation Controls (Globe + Hamburger) -->
+<div class="flex md:hidden items-center gap-4 z-50 relative">
+    <button aria-label="Toggle language" class="text-orange-500 hover:text-orange-600 transition-colors flex items-center justify-center">
+        <span class="material-symbols-outlined notranslate" translate="no">language</span>
+    </button>
+    <button id="mobile-menu-btn" aria-label="Toggle mobile menu" class="text-orange-500 hover:text-orange-600 transition-colors flex items-center justify-center">
+        <span class="material-symbols-outlined notranslate" translate="no" id="hamburger-icon">menu</span>
+    </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-40 md:pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Hero Section -->
+  <section class="mb-24 flex flex-col md:flex-row items-center gap-gutter relative">
+  
+  <!-- Mobile Hero Carousel (Hidden on Desktop) -->
+  <div class="md:hidden w-full h-[300px] relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80 bg-white mb-6 animate-[fadeIn_1s_ease-out] group">
+      <!-- Slide 1 -->
+      <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-100">
+          <div class="bg-cover bg-center w-full h-full" style="background-image: url('./assests/carousel0.jpg');"></div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+          <div class="bg-cover bg-center w-full h-full" style="background-image: url('./assests/carousel1.jpg');"></div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+          <div class="bg-cover bg-center w-full h-full" style="background-image: url('./assests/carousel2.jpg');"></div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+          <div class="bg-cover bg-center w-full h-full" style="background-image: url('./assests/carousel3.jpg');"></div>
+      </div>
+      <!-- Slide 5 -->
+      <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+          <div class="bg-cover bg-center w-full h-full" style="background-image: url('./assests/carousel1.jpg');"></div>
+      </div>
+      <!-- Slide 6 -->
+      <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+          <div class="bg-cover bg-center w-full h-full" style="background-image: url('./assests/carousel2.jpg');"></div>
+      </div>
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent pointer-events-none flex flex-col justify-end p-4 z-10">
+          <p class="text-white font-label-caps text-xs tracking-widest text-center shadow-sm">Premium Installation</p>
+      </div>
+  </div>
+
+  <!-- Carousel Script -->
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const slides = document.querySelectorAll('.carousel-slide');
+          if(slides.length === 0) return;
+          
+          let currentSlide = 0;
+          setInterval(() => {
+              // Fade out current
+              slides[currentSlide].classList.remove('opacity-100');
+              slides[currentSlide].classList.add('opacity-0');
+              
+              // Next slide
+              currentSlide = (currentSlide + 1) % slides.length;
+              
+              // Fade in next
+              slides[currentSlide].classList.remove('opacity-0');
+              slides[currentSlide].classList.add('opacity-100');
+          }, 3500); // 3.5 seconds
+      });
+  </script>
+
+  <div class="flex-1 space-y-6 z-10 w-full pt-4 md:pt-0">
+  <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-slate-900 drop-shadow-sm">Power Your Future with Solar Savings</h1>
+  <p class="font-body-lg text-body-lg text-slate-800 md:text-slate-600 max-w-xl font-medium md:font-normal">Harness the power of the sun to reduce your energy bills. Professional solar installation in Salem with government subsidy support.</p>
+  <div class="flex flex-col sm:flex-row gap-4 pt-4">
+  <a href="https://wa.me/919655325766?text=I%20would%20like%20to%20get%20a%20free%20quotation" class="bg-primary text-slate-900 font-label-caps text-label-caps px-6 py-4 rounded-xl hover:bg-primary-fixed-dim transition-colors text-center w-full sm:w-auto shadow-md font-bold text-sm">Get Free Quote</a>
+  </div>
+  </div>
+
+  <!-- Desktop Image (Hidden on Mobile) -->
+  <div class="hidden md:block flex-1 w-full h-[450px] relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50 bg-white group">
+  <div class="bg-cover bg-center w-full h-full transition-transform duration-1000 group-hover:scale-105" data-alt="Residential solar panels" style="background-image: url('./assests/carousel0.jpg')"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent pointer-events-none"></div>
+  </div>
+  </section>
+  <!-- Trust Badges -->
+<section class="mb-24 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-white border border-slate-200 p-6 rounded-xl flex items-center gap-4 shadow-sm">
+<div class="text-primary p-3 rounded-full bg-slate-50">
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">verified</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">25+ Years Warranty</h3>
+<p class="font-body-sm text-body-sm text-slate-500">Guaranteed performance</p>
+</div>
+</div>
+<div class="bg-white border border-slate-200 p-6 rounded-xl flex items-center gap-4 shadow-sm">
+<div class="text-secondary p-3 rounded-full bg-slate-50">
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">account_balance</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">Govt Approved</h3>
+<p class="font-body-sm text-body-sm text-slate-500">PM Surya Ghar Subsidy</p>
+</div>
+</div>
+<div class="bg-white border border-slate-200 p-6 rounded-xl flex items-center gap-4 shadow-sm">
+<div class="text-primary p-3 rounded-full bg-slate-50">
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">location_on</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">Local Presence</h3>
+<p class="font-body-sm text-body-sm text-slate-500">Serving Salem Region</p>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="mb-24">
+<h2 class="font-headline-md text-headline-md text-slate-900 mb-8 border-l-4 border-secondary pl-4">Our Core Services</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-white border border-slate-200 rounded-xl p-6 flex flex-col hover:border-primary transition-colors cursor-pointer group shadow-sm">
+<div class="text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">solar_power</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 mb-2">Solar Panels</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex-grow mb-4">High-efficiency mono perc modules for maximum yield.</p>
+
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-6 flex flex-col hover:border-primary transition-colors cursor-pointer group shadow-sm">
+<div class="text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">battery_charging_full</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 mb-2">Inverters &amp; Batteries</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex-grow mb-4">Reliable power storage solutions for uninterrupted supply.</p>
+
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-6 flex flex-col hover:border-primary transition-colors cursor-pointer group shadow-sm">
+<div class="text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">ac_unit</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 mb-2">AC Maintenance</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex-grow mb-4">Expert servicing and repair for all major AC brands.</p>
+
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-6 flex flex-col hover:border-primary transition-colors cursor-pointer group shadow-sm">
+<div class="text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">power</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 mb-2">UPS Services</h3>
+<p class="font-body-sm text-body-sm text-slate-500 flex-grow mb-4">Installation and maintenance of home &amp; commercial UPS.</p>
+
+</div>
+</div>
+</section>
+<!-- Lead Capture Form Section -->
+<section class="mb-24">
+<div class="bg-white border border-slate-200 rounded-xl p-8 max-w-2xl mx-auto shadow-md w-full">
+<h2 class="font-headline-md text-headline-md text-slate-900 mb-6 text-center" id="form-title">Get a Free Consultation</h2>
+<div class="hidden text-center py-4 mb-4 bg-error-container text-on-error-container rounded-lg" id="form-error-msg">
+<p class="font-body-sm text-body-sm"></p>
+</div>
+<form class="space-y-4 flex flex-col" id="lead-capture-form" novalidate="" onsubmit="event.preventDefault(); const formData = new FormData(this); let text = 'New Consultation Request:\n\n'; for(const [k,v] of formData.entries()) { if (!k.includes('turnstile')) { text += k + ': ' + v + '\n'; } } window.location.href = 'https://wa.me/919655325766?text=' + encodeURIComponent(text);">
+<div class="w-full">
+<label class="block font-body-sm text-body-sm text-slate-600 mb-1" for="name">Full Name *</label>
+<input aria-label="Full Name" aria-required="true" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" id="name" name="name" type="text">
+<span class="error-msg text-error text-body-sm mt-1 block" id="name-error"></span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+<div class="w-full">
+<label class="block font-body-sm text-body-sm text-slate-600 mb-1" for="phone">Phone Number *</label>
+<input aria-label="Phone Number" aria-required="true" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" id="phone" name="phone" type="tel">
+<span class="error-msg text-error text-body-sm mt-1 block" id="phone-error"></span>
+</div>
+<div class="w-full">
+<label class="block font-body-sm text-body-sm text-slate-600 mb-1" for="email">Email Address</label>
+<input aria-label="Email Address" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" id="email" name="email" type="email">
+<span class="error-msg text-error text-body-sm mt-1 block" id="email-error"></span>
+</div>
+</div>
+<div class="w-full">
+<label class="block font-body-sm text-body-sm text-slate-600 mb-1" for="service">Service Interested In *</label>
+<select aria-label="Service Interested In" aria-required="true" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" id="service" name="service">
+<option value="">Select a Service</option>
+<option value="solar">Solar Installation</option>
+<option value="ac">AC Maintenance</option>
+<option value="ups">UPS Services</option>
+<option value="subsidy">Government Subsidy Info</option>
+</select>
+<span class="error-msg text-error text-body-sm mt-1 block" id="service-error"></span>
+</div>
+<div class="w-full">
+<label class="block font-body-sm text-body-sm text-slate-600 mb-1" for="message">Message *</label>
+<textarea aria-label="Message" aria-required="true" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" id="message" name="message" rows="4"></textarea>
+<span class="error-msg text-error text-body-sm mt-1 block" id="message-error"></span>
+</div>
+<button aria-label="Submit Form" class="w-full bg-primary text-slate-900 font-label-caps text-label-caps px-6 py-3 rounded-lg hover:bg-primary-fixed-dim transition-colors mt-6" type="submit">
+                        Submit Inquiry
+                    </button>
+</form>
+<div class="hidden text-center py-8" id="form-success-msg">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4 notranslate" translate="no">check_circle</span>
+<h3 class="font-headline-md text-headline-md text-slate-900 mb-2">Thank You!</h3>
+<p class="font-body-md text-body-md text-slate-600">Your inquiry has been submitted successfully. We will get back to you shortly.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 md:hidden bg-white border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+    <a href="tel:+919655325766" class="flex flex-col items-center justify-center text-slate-600 px-4 py-2 hover:bg-slate-50 active:scale-95 transition-transform rounded-xl">
+        <span class="material-symbols-outlined mb-1 text-[24px] notranslate" translate="no">call</span>
+        <span class="font-label-caps text-[10px] leading-tight font-medium">Call</span>
+    </a>
+    <a href="https://wa.me/919655325766?text=I%20would%20like%20to%20talk%20to%20you%20about%20your%20services" class="flex flex-col items-center justify-center text-emerald-600 px-4 py-2 hover:bg-emerald-50 active:scale-95 transition-transform rounded-xl">
+        <span class="material-symbols-outlined mb-1 text-[24px] notranslate" translate="no">chat</span>
+        <span class="font-label-caps text-[10px] leading-tight font-medium">WhatsApp</span>
+    </a>
+    <a href="/contact.html" class="flex flex-col items-center justify-center bg-amber-400 text-amber-900 rounded-xl px-4 py-2 hover:bg-amber-500 active:scale-95 transition-transform shadow-sm">
+        <span class="material-symbols-outlined mb-1 text-[24px] notranslate" translate="no">event_available</span>
+        <span class="font-label-caps text-[10px] leading-tight font-bold">Book</span>
+    </a>
+</nav>
+
+
+<footer class="bg-orange-500 text-white w-full pt-8 pb-28 md:pb-8 mt-auto relative z-40">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+    <div class="flex flex-col items-center md:items-start mb-4 md:mb-0">
+      <div class="flex items-center gap-3 mb-2">
+        <div class="bg-white p-1 rounded-full shadow-sm flex items-center justify-center w-12 h-12 flex-shrink-0">
+            <img src="./assests/logo.jpg" alt="Logo" class="w-full h-full object-cover mix-blend-multiply" style="mix-blend-mode: multiply; border-radius: 50%;">
+        </div>
+        <h2 class="text-xl font-bold">Sri Jai Solar Systems</h2>
+      </div>
+      <p class="text-sm">© 2026 Sri Jai Solar Systems. All rights reserved.</p>
+    </div>
+    <div class="flex gap-4">
+      <a href="/privacy.html" class="text-sm hover:underline">Privacy Policy</a>
+      <a href="/terms.html" class="text-sm hover:underline">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+<script id="active-tab-script">
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath || (currentPath === '/' && link.getAttribute('href') === '/index.html')) {
+            link.classList.remove('text-slate-700');
+            link.classList.add('text-orange-500', 'border-b-2', 'border-orange-500');
+        }
+    });
+});
+</script><!-- Mobile Navigation Overlay Drawer --><script id="mobile-menu-logic">
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    
+    if (mobileBtn && mobileOverlay && hamburgerIcon) {
+        mobileBtn.addEventListener('click', () => {
+            const isClosed = mobileOverlay.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileOverlay.classList.remove('translate-x-full');
+                mobileOverlay.classList.add('translate-x-0');
+                hamburgerIcon.textContent = 'close';
+            } else {
+                mobileOverlay.classList.add('translate-x-full');
+                mobileOverlay.classList.remove('translate-x-0');
+                hamburgerIcon.textContent = 'menu';
+            }
+        });
+    }
+});
+</script><div id="mobile-menu-overlay" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col pt-24 px-6 md:hidden shadow-2xl">
+    <nav class="flex flex-col gap-6 font-headline-sm text-headline-sm font-semibold">
+        <a href="/index.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">Home</a>
+        <a href="/about.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">About</a>
+        <a href="/solar-solutions.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">Solar</a>
+        <a href="/ac-ups-services.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">AC/UPS</a>
+        <a href="/subsidy.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">Subsidy</a>
+        <a href="/contact.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors pb-2">Contact</a>
+    </nav>
+</div><script id="global-lang-toggle">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en', 
+            includedLanguages: 'ta,en', 
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Desktop and Mobile toggle logic
+        const toggleLanguageButtons = () => {
+            const selectField = document.querySelector(".goog-te-combo");
+            if (selectField) {
+                const newLang = selectField.value === 'ta' ? 'en' : 'ta';
+                
+                // Force strict global cookies
+                const host = window.location.hostname;
+                document.cookie = `googtrans=/en/${newLang}; path=/; domain=${host}`;
+                document.cookie = `googtrans=/en/${newLang}; path=/`;
+                
+                // Update widget
+                selectField.value = newLang;
+                selectField.dispatchEvent(new Event('change'));
+                
+                // If switching to Tamil, fade out slightly while it translates
+                if (newLang === 'ta') {
+                    document.documentElement.style.opacity = '0';
+                    setTimeout(() => {
+                        document.documentElement.style.opacity = '1';
+                    }, 800); // Quick fade back
+                }
+            }
+        };
+
+        const langBtns = Array.from(document.querySelectorAll('button')).filter(b => b.querySelector('span') && b.querySelector('span').textContent.includes('language'));
+        langBtns.forEach(btn => {
+            // Remove old listeners by cloning
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            newBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleLanguageButtons();
+            });
+        });
+    });
+</script><script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></body></html>
