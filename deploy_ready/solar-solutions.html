@@ -1,0 +1,602 @@
+<!DOCTYPE html><html lang="en"><head><style id="anti-flicker">
+  html.translating { opacity: 0 !important; }
+</style>
+<script id="anti-flicker-script">
+  (function() {
+      const isTamil = document.cookie.includes('googtrans=/en/ta') || document.cookie.includes('googtrans=/auto/ta') || document.cookie.includes('googtrans=%2Fen%2Fta');
+      if (isTamil) {
+          document.documentElement.classList.add('translating');
+          
+          document.addEventListener('DOMContentLoaded', () => {
+              let timeout;
+              const observer = new MutationObserver(() => {
+                  clearTimeout(timeout);
+                  timeout = setTimeout(() => {
+                      document.documentElement.classList.remove('translating');
+                      document.documentElement.style.transition = 'opacity 0.4s ease';
+                      observer.disconnect();
+                  }, 250);
+              });
+              
+              observer.observe(document.body, { childList: true, characterData: true, subtree: true });
+              
+              // Fallbacks
+              setTimeout(() => {
+                  document.documentElement.classList.remove('translating');
+                  document.documentElement.style.transition = 'opacity 0.4s ease';
+                  observer.disconnect();
+              }, 4000);
+          });
+      }
+  })();
+</script>
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Solar Energy Solutions | Sri Jai Solar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#131b2e",
+                        "background": "#0b1326",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "text-primary": "#F8FAFC",
+                        "surface-variant": "#2d3449",
+                        "secondary-fixed": "#6ffbbe",
+                        "border-subtle": "#334155",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-dim": "#0b1326",
+                        "secondary": "#4edea3",
+                        "inverse-surface": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "tertiary-container": "#b0c8ff",
+                        "surface-bright": "#31394d",
+                        "text-muted": "#94A3B8",
+                        "on-tertiary-container": "#0050ad",
+                        "tertiary": "#dbe4ff",
+                        "surface-card": "#1E293B",
+                        "surface-tint": "#f9bd22",
+                        "secondary-container": "#00a572",
+                        "on-secondary": "#003824",
+                        "on-secondary-container": "#00311f",
+                        "surface-container-highest": "#2d3449",
+                        "on-primary-container": "#6c4f00",
+                        "on-surface-variant": "#d3c5ac",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-fixed": "#261a00",
+                        "surface-container-lowest": "#060e20",
+                        "on-surface": "#dae2fd",
+                        "on-primary": "#402d00",
+                        "inverse-on-surface": "#283044",
+                        "primary-fixed-dim": "#f9bd22",
+                        "primary-fixed": "#ffdf9f",
+                        "on-tertiary": "#002e6a",
+                        "on-primary-fixed-variant": "#5c4300",
+                        "error-container": "#93000a",
+                        "inverse-primary": "#795900",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-container-high": "#222a3d",
+                        "secondary-fixed-dim": "#4edea3",
+                        "error": "#ffb4ab",
+                        "primary-container": "#fbbf24",
+                        "surface-container": "#171f33",
+                        "primary": "#ffe1a7",
+                        "on-tertiary-fixed": "#001a42",
+                        "outline-variant": "#4f4633",
+                        "outline": "#9c8f79",
+                        "on-background": "#dae2fd",
+                        "surface": "#0b1326"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "unit": "4px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Merriweather"],
+                        "body-sm": ["Inter"],
+                        "serif-accent": ["Merriweather"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg-mobile": ["Merriweather"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "serif-accent": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .ambient-grid {
+            background-image: 
+                linear-gradient(to right, rgba(203, 213, 225, 0.5) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(203, 213, 225, 0.5) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+            transform-origin: top center;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+        .loading-pulse {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+
+<style>
+  /* Hide Google Translate UI */
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+  #google_translate_element { display: none !important; }
+  .skiptranslate { display: none !important; }
+</style>
+
+<style id="dynamic-solar-mesh">
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob {
+  animation: blob 12s infinite ease-in-out;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+.mesh-bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #f8fafc; /* slate-50 */
+}
+.mesh-orb-1 {
+  position: absolute;
+  top: -10%; left: 10%;
+  width: 32rem; height: 32rem;
+  background-color: #fdba74; /* orange-300 */
+  border-radius: 9999px;
+  mix-blend-mode: multiply;
+  filter: blur(128px);
+  opacity: 0.6;
+}
+.mesh-orb-2 {
+  position: absolute;
+  top: 10%; right: 10%;
+  width: 32rem; height: 32rem;
+  background-color: #fde047; /* yellow-300 */
+  border-radius: 9999px;
+  mix-blend-mode: multiply;
+  filter: blur(128px);
+  opacity: 0.5;
+}
+.mesh-orb-3 {
+  position: absolute;
+  bottom: -20%; left: 30%;
+  width: 40rem; height: 40rem;
+  background-color: #fcd34d; /* amber-300 */
+  border-radius: 9999px;
+  mix-blend-mode: multiply;
+  filter: blur(128px);
+  opacity: 0.4;
+}
+</style>\n<script src="./assests/tracker.js" defer></script>\n</head>
+<body class="text-slate-900 font-body-md min-h-screen flex flex-col relative pt-16 selection:bg-amber-200 selection:text-amber-900 transition-colors duration-300"><div id="google_translate_element" style="display: none;"></div><div id="mesh-bg" class="mesh-bg-container">
+  <div class="mesh-orb-1 animate-blob"></div>
+  <div class="mesh-orb-2 animate-blob animation-delay-2000"></div>
+  <div class="mesh-orb-3 animate-blob animation-delay-4000"></div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-sm transition-all duration-300">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-16">
+<a href="/index.html" class="font-headline-md text-headline-md font-bold text-orange-500 hover:text-orange-600 transition-colors z-50 relative flex items-center gap-2">
+      <img src="./assests/logo.jpg" alt="Sri Jai Solar Systems Logo" class="w-10 h-10 object-cover mix-blend-multiply flex-shrink-0" style="mix-blend-mode: multiply;">
+      <span>Sri Jai Solar Systems</span>
+  </a>
+
+<!-- Desktop Navigation Links & Globe Toggle -->
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md font-semibold">
+    <a href="/index.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">Home</a>
+    <a href="/about.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">About</a>
+    <a href="/solar-solutions.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">Solar</a>
+    <a href="/ac-ups-services.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">AC/UPS</a>
+    <a href="/subsidy.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">Subsidy</a>
+    <a href="/contact.html" class="nav-link text-slate-700 hover:text-orange-500 transition-colors">Contact</a>
+    <button aria-label="Toggle language" class="text-orange-500 hover:text-orange-600 transition-colors flex items-center justify-center">
+        <span class="material-symbols-outlined notranslate" translate="no">language</span>
+    </button>
+</nav>
+
+<!-- Mobile Navigation Controls (Globe + Hamburger) -->
+<div class="flex md:hidden items-center gap-4 z-50 relative">
+    <button aria-label="Toggle language" class="text-orange-500 hover:text-orange-600 transition-colors flex items-center justify-center">
+        <span class="material-symbols-outlined notranslate" translate="no">language</span>
+    </button>
+    <button id="mobile-menu-btn" aria-label="Toggle mobile menu" class="text-orange-500 hover:text-orange-600 transition-colors flex items-center justify-center">
+        <span class="material-symbols-outlined notranslate" translate="no" id="hamburger-icon">menu</span>
+    </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-24 space-y-16 md:space-y-32">
+<!-- Page Header & 3D Viewer Section -->
+<section class="flex flex-col md:flex-row gap-gutter items-center relative z-10 w-full">
+  <!-- Header Text -->
+  <div class="flex flex-col space-y-6 w-full md:w-5/12 mt-8 md:mt-0">
+      <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-slate-900">
+          Solar Energy <span class="text-amber-500">Solutions</span>
+      </h1>
+      <p class="font-body-lg text-body-lg text-slate-600 max-w-xl">
+          Empowering Salem with sustainable, high-efficiency solar power systems for homes and businesses. Harness the sun's potential with cutting-edge technology engineered for maximum savings and reliability.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <a href="https://wa.me/919655325766?text=I%20would%20like%20to%20get%20a%20quote%20for%20Solar%20Energy%20Solutions" class="bg-amber-400 text-amber-900 font-label-caps text-label-caps px-6 py-3 rounded-DEFAULT hover:bg-amber-500 transition-colors shadow-sm flex items-center justify-center space-x-2 w-max">
+              <span>Get a Quote</span>
+              <span class="material-symbols-outlined text-[18px] notranslate" translate="no">arrow_forward</span>
+          </a>
+      </div>
+  </div>
+
+  <!-- Interactive Solar Types Showcase Widget -->
+  <div class="w-full md:w-7/12 flex flex-col space-y-4 relative z-20">
+      
+      <!-- Top Tab Navigation (Moved Outside) -->
+      <div class="w-full flex justify-between gap-2 sm:gap-3">
+          <button onclick="switchSolarType('ongrid', true)" id="tab-ongrid" class="flex-1 py-2.5 rounded-full bg-amber-500 text-amber-950 font-label-caps text-xs font-bold shadow-md transition-all border border-amber-400">On Grade Solar System</button>
+          <button onclick="switchSolarType('offgrid', true)" id="tab-offgrid" class="flex-1 py-2.5 rounded-full bg-slate-600/90 text-white font-label-caps text-xs font-semibold hover:bg-slate-500 transition-all border border-slate-500/50 shadow-sm">Of Grade Solar System</button>
+          <button onclick="switchSolarType('hybrid', true)" id="tab-hybrid" class="flex-1 py-2.5 rounded-full bg-slate-600/90 text-white font-label-caps text-xs font-semibold hover:bg-slate-500 transition-all border border-slate-500/50 shadow-sm">Hybrid Solar System</button>
+      </div>
+
+      <!-- Video Banner -->
+      <div class="relative w-full aspect-[4/3] md:aspect-video rounded-2xl bg-slate-900 border-4 border-slate-800 overflow-hidden shadow-2xl flex flex-col group">
+          <div class="absolute inset-0 w-full h-full">
+                <video id="vid-ongrid" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" loop muted playsinline preload="metadata">
+                    <source src="assests/on grid.mp4" type="video/mp4">
+                </video>
+                <video id="vid-offgrid" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0 pointer-events-none" loop muted playsinline preload="metadata">
+                    <source src="assests/of grid.mp4" type="video/mp4">
+                </video>
+                <video id="vid-hybrid" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0 pointer-events-none" loop muted playsinline preload="metadata">
+                    <source src="assests/hybrid.mp4" type="video/mp4">
+                </video>
+              
+              
+          </div>
+
+          <!-- Info Overlay Bottom -->
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 pt-20 z-20 pointer-events-none">
+              <div id="info-ongrid" class="transition-all duration-700 transform translate-y-0 opacity-100">
+                  <h3 class="text-white font-headline-sm text-headline-sm font-bold mb-1">On Grade Solar System</h3>
+                  <p class="text-slate-300 font-body-sm text-body-sm line-clamp-2">Connects directly to the utility grid. Ideal for reducing bills through net metering without needing expensive batteries.</p>
+              </div>
+              <div id="info-offgrid" class="absolute bottom-6 left-6 right-6 transition-all duration-700 transform translate-y-4 opacity-0 pointer-events-none">
+                  <h3 class="text-white font-headline-sm text-headline-sm font-bold mb-1">Of Grade Solar System</h3>
+                  <p class="text-slate-300 font-body-sm text-body-sm line-clamp-2">Completely independent from the utility grid. Stores excess solar power in heavy-duty batteries for nighttime use.</p>
+              </div>
+              <div id="info-hybrid" class="absolute bottom-6 left-6 right-6 transition-all duration-700 transform translate-y-4 opacity-0 pointer-events-none">
+                  <h3 class="text-white font-headline-sm text-headline-sm font-bold mb-1">Hybrid Solar System</h3>
+                  <p class="text-slate-300 font-body-sm text-body-sm line-clamp-2">The best of both worlds. Connects to the grid but also includes battery backup for ultimate security during power outages.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      let currentSolarIndex = 0;
+      const solarTypes = ['ongrid', 'offgrid', 'hybrid'];
+      let loopInterval = null;
+      let isManualOverride = false;
+
+      function switchSolarType(type, isManual = false) {
+          if (isManual) {
+              isManualOverride = true;
+          }
+          currentSolarIndex = solarTypes.indexOf(type);
+          
+          solarTypes.forEach(t => {
+              const vid = document.getElementById('vid-' + t);
+              const tab = document.getElementById('tab-' + t);
+              const info = document.getElementById('info-' + t);
+              
+              if (t === type) {
+                  vid.classList.remove('opacity-0', 'pointer-events-none');
+                  vid.classList.add('opacity-100');
+                  let playPromise = vid.play();
+                  if (playPromise !== undefined) {
+                      playPromise.catch(error => { console.log("Auto-play was prevented"); });
+                  }
+                  
+                  tab.className = 'flex-1 py-2.5 rounded-full bg-amber-500 text-amber-950 font-label-caps text-xs font-bold shadow-md transition-all border border-amber-400';
+                  
+                  info.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none', 'absolute', 'bottom-6', 'left-6', 'right-6');
+                  info.classList.add('opacity-100', 'translate-y-0');
+              } else {
+                  vid.classList.add('opacity-0', 'pointer-events-none');
+                  vid.classList.remove('opacity-100');
+                  vid.pause();
+                  
+                  tab.className = 'flex-1 py-2.5 rounded-full bg-slate-600/90 text-white font-label-caps text-xs font-semibold hover:bg-slate-500 transition-all border border-slate-500/50 shadow-sm';
+                  
+                  info.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none', 'absolute', 'bottom-6', 'left-6', 'right-6');
+                  info.classList.remove('opacity-100', 'translate-y-0');
+              }
+          });
+      }
+
+      function startSolarLoop() {
+          if (loopInterval) clearInterval(loopInterval);
+          loopInterval = setInterval(() => {
+              if (!isManualOverride) {
+                  let nextIndex = (currentSolarIndex + 1) % solarTypes.length;
+                  switchSolarType(solarTypes[nextIndex], false);
+              }
+          }, 4500); // Wait 4.5s on each video
+      }
+
+      // Start automatically
+      let initialPlay = document.getElementById('vid-ongrid').play();
+      if (initialPlay !== undefined) {
+          initialPlay.catch(error => { console.log("Initial Auto-play was prevented"); });
+      }
+      startSolarLoop();
+
+      // Resume on scroll
+      window.addEventListener('scroll', () => {
+          if (isManualOverride) {
+              isManualOverride = false;
+          }
+      }, { passive: true });
+  </script>
+</section>
+<!-- Technical Sections: System Types Bento Grid -->
+<section class="flex flex-col space-y-12 relative z-10 w-full">
+<div class="text-center max-w-2xl mx-auto space-y-4">
+<h2 class="font-headline-md text-headline-md text-slate-900">Advanced Solar Architectures</h2>
+<p class="font-body-md text-body-md text-slate-600">We engineer three distinct topologies tailored to your energy demands, grid stability, and financial goals.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- On-Grid System Card -->
+<div class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 flex flex-col h-full hover:border-amber-400 transition-colors group relative overflow-hidden shadow-sm">
+<div class="absolute top-0 right-0 w-32 h-32 bg-amber-100 rounded-bl-full -z-10 group-hover:bg-amber-200 transition-colors"></div>
+<div class="w-12 h-12 rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center mb-6 text-amber-500">
+<span class="material-symbols-outlined fill notranslate" translate="no">grid_on</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 mb-3">On-Grid Systems</h3>
+<p class="font-body-sm text-body-sm text-slate-600 flex-grow mb-6">
+                    Designed for properties with reliable utility grids. Generate power during the day, use what you need, and export excess energy back to the grid for net-metering credits. Highly cost-effective with faster ROI.
+                </p>
+<div class="space-y-2 mb-6">
+<div class="flex items-start gap-2 font-body-sm text-body-sm text-slate-700">
+<span class="material-symbols-outlined text-emerald-500 text-[16px] mt-0.5 notranslate" translate="no">check_circle</span>
+<span>Lowest initial investment</span>
+</div>
+<div class="flex items-start gap-2 font-body-sm text-body-sm text-slate-700">
+<span class="material-symbols-outlined text-emerald-500 text-[16px] mt-0.5 notranslate" translate="no">check_circle</span>
+<span>Net-metering capable</span>
+</div>
+</div>
+
+</div>
+<!-- Off-Grid System Card -->
+<div class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 flex flex-col h-full hover:border-emerald-500 transition-colors group relative overflow-hidden shadow-sm">
+<div class="absolute top-0 right-0 w-32 h-32 bg-emerald-100 rounded-bl-full -z-10 group-hover:bg-emerald-200 transition-colors"></div>
+<div class="w-12 h-12 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-6 text-emerald-500">
+<span class="material-symbols-outlined fill notranslate" translate="no">battery_charging_full</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 mb-3">Off-Grid Systems</h3>
+<p class="font-body-sm text-body-sm text-slate-600 flex-grow mb-6">
+                    Complete energy independence. Ideal for remote locations or areas with frequent power outages. Generates power during the day and stores it in robust battery banks for continuous night-time supply.
+                </p>
+<div class="space-y-2 mb-6">
+<div class="flex items-start gap-2 font-body-sm text-body-sm text-slate-700">
+<span class="material-symbols-outlined text-emerald-500 text-[16px] mt-0.5 notranslate" translate="no">check_circle</span>
+<span>100% Energy Autonomy</span>
+</div>
+<div class="flex items-start gap-2 font-body-sm text-body-sm text-slate-700">
+<span class="material-symbols-outlined text-emerald-500 text-[16px] mt-0.5 notranslate" translate="no">check_circle</span>
+<span>Protection from blackouts</span>
+</div>
+</div>
+
+</div>
+<!-- Hybrid System Card -->
+<div class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 flex flex-col h-full hover:border-blue-500 transition-colors group relative overflow-hidden md:col-span-2 lg:col-span-1 shadow-sm">
+<div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-bl-full -z-10 group-hover:bg-blue-200 transition-colors"></div>
+<div class="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-blue-500">
+<span class="material-symbols-outlined fill notranslate" translate="no">autorenew</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 mb-3">Hybrid Systems</h3>
+<p class="font-body-sm text-body-sm text-slate-600 flex-grow mb-6">
+                    The best of both worlds. Combines grid-tied efficiency with battery backup. Maximizes self-consumption, provides backup during outages, and allows for peak-shaving to minimize grid electricity costs.
+                </p>
+<div class="space-y-2 mb-6">
+<div class="flex items-start gap-2 font-body-sm text-body-sm text-slate-700">
+<span class="material-symbols-outlined text-emerald-500 text-[16px] mt-0.5 notranslate" translate="no">check_circle</span>
+<span>Intelligent energy routing</span>
+</div>
+<div class="flex items-start gap-2 font-body-sm text-body-sm text-slate-700">
+<span class="material-symbols-outlined text-emerald-500 text-[16px] mt-0.5 notranslate" translate="no">check_circle</span>
+<span>Seamless backup power</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<!-- Process / Secondary CTA -->
+<section class="bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-12 relative overflow-hidden z-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
+<div class="absolute -right-24 -top-24 w-64 h-64 bg-amber-200 rounded-full blur-3xl pointer-events-none opacity-50"></div>
+<div class="max-w-xl z-10">
+<h2 class="font-serif-accent text-[24px] leading-tight text-slate-900 mb-4">Ready to transition to clean energy?</h2>
+<p class="font-body-md text-body-md text-slate-600">Our engineering team provides a free site assessment and custom system design optimized for your specific roof profile and energy usage.</p>
+</div>
+<div class="z-10 w-full md:w-auto shrink-0">
+<div class="flex flex-col sm:flex-row gap-4"><a href="https://wa.me/919655325766?text=I%20would%20like%20to%20request%20a%20site%20assessment" class="bg-primary text-slate-900 font-label-caps text-label-caps px-6 py-3 rounded-lg hover:bg-primary-fixed-dim transition-colors text-center w-full sm:w-auto">WhatsApp</a><a href="tel:+919655325766" class="bg-secondary text-white font-label-caps text-label-caps px-6 py-3 rounded-lg hover:bg-secondary/90 transition-colors text-center w-full sm:w-auto border border-secondary">Call</a></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 md:hidden bg-white border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+    <a href="tel:+919655325766" class="flex flex-col items-center justify-center text-slate-600 px-4 py-2 hover:bg-slate-50 active:scale-95 transition-transform rounded-xl">
+        <span class="material-symbols-outlined mb-1 text-[24px] notranslate" translate="no">call</span>
+        <span class="font-label-caps text-[10px] leading-tight font-medium">Call</span>
+    </a>
+    <a href="https://wa.me/919655325766?text=I%20would%20like%20to%20talk%20to%20you%20about%20your%20services" class="flex flex-col items-center justify-center text-emerald-600 px-4 py-2 hover:bg-emerald-50 active:scale-95 transition-transform rounded-xl">
+        <span class="material-symbols-outlined mb-1 text-[24px] notranslate" translate="no">chat</span>
+        <span class="font-label-caps text-[10px] leading-tight font-medium">WhatsApp</span>
+    </a>
+    <a href="/contact.html" class="flex flex-col items-center justify-center bg-amber-400 text-amber-900 rounded-xl px-4 py-2 hover:bg-amber-500 active:scale-95 transition-transform shadow-sm">
+        <span class="material-symbols-outlined mb-1 text-[24px] notranslate" translate="no">event_available</span>
+        <span class="font-label-caps text-[10px] leading-tight font-bold">Book</span>
+    </a>
+</nav>
+
+<footer class="bg-orange-500 text-white w-full pt-8 pb-28 md:pb-8 mt-auto relative z-40">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+    <div class="flex flex-col items-center md:items-start mb-4 md:mb-0">
+      <div class="flex items-center gap-3 mb-2">
+        <div class="bg-white p-1 rounded-full shadow-sm flex items-center justify-center w-12 h-12 flex-shrink-0">
+            <img src="./assests/logo.jpg" alt="Logo" class="w-full h-full object-cover mix-blend-multiply" style="mix-blend-mode: multiply; border-radius: 50%;">
+        </div>
+        <h2 class="text-xl font-bold">Sri Jai Solar Systems</h2>
+      </div>
+      <p class="text-sm">© 2026 Sri Jai Solar Systems. All rights reserved.</p>
+    </div>
+    <div class="flex gap-4">
+      <a href="/privacy.html" class="text-sm hover:underline">Privacy Policy</a>
+      <a href="/terms.html" class="text-sm hover:underline">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+<script id="active-tab-script">
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath || (currentPath === '/' && link.getAttribute('href') === '/index.html')) {
+            link.classList.remove('text-slate-700');
+            link.classList.add('text-orange-500', 'border-b-2', 'border-orange-500');
+        }
+    });
+});
+</script><!-- Mobile Navigation Overlay Drawer --><script id="mobile-menu-logic">
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    
+    if (mobileBtn && mobileOverlay && hamburgerIcon) {
+        mobileBtn.addEventListener('click', () => {
+            const isClosed = mobileOverlay.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileOverlay.classList.remove('translate-x-full');
+                mobileOverlay.classList.add('translate-x-0');
+                hamburgerIcon.textContent = 'close';
+            } else {
+                mobileOverlay.classList.add('translate-x-full');
+                mobileOverlay.classList.remove('translate-x-0');
+                hamburgerIcon.textContent = 'menu';
+            }
+        });
+    }
+});
+</script><div id="mobile-menu-overlay" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col pt-24 px-6 md:hidden shadow-2xl">
+    <nav class="flex flex-col gap-6 font-headline-sm text-headline-sm font-semibold">
+        <a href="/index.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">Home</a>
+        <a href="/about.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">About</a>
+        <a href="/solar-solutions.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">Solar</a>
+        <a href="/ac-ups-services.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">AC/UPS</a>
+        <a href="/subsidy.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors border-b border-slate-200 pb-2">Subsidy</a>
+        <a href="/contact.html" class="nav-link text-slate-800 hover:text-orange-500 transition-colors pb-2">Contact</a>
+    </nav>
+</div><script id="global-lang-toggle">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en', 
+            includedLanguages: 'ta,en', 
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Desktop and Mobile toggle logic
+        const toggleLanguageButtons = () => {
+            const selectField = document.querySelector(".goog-te-combo");
+            if (selectField) {
+                const newLang = selectField.value === 'ta' ? 'en' : 'ta';
+                
+                // Force strict global cookies
+                const host = window.location.hostname;
+                document.cookie = `googtrans=/en/${newLang}; path=/; domain=${host}`;
+                document.cookie = `googtrans=/en/${newLang}; path=/`;
+                
+                // Update widget
+                selectField.value = newLang;
+                selectField.dispatchEvent(new Event('change'));
+                
+                // If switching to Tamil, fade out slightly while it translates
+                if (newLang === 'ta') {
+                    document.documentElement.style.opacity = '0';
+                    setTimeout(() => {
+                        document.documentElement.style.opacity = '1';
+                    }, 800); // Quick fade back
+                }
+            }
+        };
+
+        const langBtns = Array.from(document.querySelectorAll('button')).filter(b => b.querySelector('span') && b.querySelector('span').textContent.includes('language'));
+        langBtns.forEach(btn => {
+            // Remove old listeners by cloning
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            newBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleLanguageButtons();
+            });
+        });
+    });
+</script><script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></body></html>
